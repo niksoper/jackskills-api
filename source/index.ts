@@ -10,6 +10,10 @@ const sheets = google.sheets({ version: 'v4', auth: apiKey });
 
 const app = express();
 
+app.get('/sha', (req, res) => {
+  res.send(process.env.COMMIT_SHA || 'unknown');
+});
+
 app.get('/kills', async (req, res, next) => {
   try {
     const result = await sheets.spreadsheets.values.get({
