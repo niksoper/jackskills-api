@@ -2,12 +2,15 @@ steps:
   - name: node
     entrypoint: npm
     args: ['install']
+    id: Dependencies
   - name: node
     entrypoint: npm
     args: ['test']
+    id: Tests
   - name: node
     entrypoint: npm
     args: ['run', 'compile']
+    id: Compile
   - name: gcr.io/cloud-builders/docker
     args:
       - build
