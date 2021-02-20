@@ -21,6 +21,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "axios": "^0.21.1",
+    "cors": "^2.8.5",
     "date-fns": "^2.17.0",
     "express": "^4.17.1",
     "googleapis": "^67.1.0",
@@ -29,6 +30,7 @@
     "tslib": "^2.1.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
     "@types/lodash": "4.14.168",
     "google-auth-library": "^7.0.0",

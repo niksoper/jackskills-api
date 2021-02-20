@@ -1,3 +1,4 @@
+import * as cors from 'cors';
 import * as express from 'express';
 import { google } from 'googleapis';
 import { IKill } from './coreTypes';
@@ -9,6 +10,8 @@ const apiKey = process.env.SHEETS_API_KEY;
 const sheets = google.sheets({ version: 'v4', auth: apiKey });
 
 const app = express();
+
+app.use(cors());
 
 app.get('/sha', (req, res) => {
   res.send(process.env.COMMIT_SHA || 'unknown');
