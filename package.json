@@ -8,7 +8,7 @@
     "compile": "tsc -p source",
     "compile:watch": "npm run compile -- --watch",
     "build:local": "docker build . -t jackskills-api",
-    "start": "node index.js",
+    "start": "npm run compile && docker-compose up --build",
     "test": "jest",
     "system-test": "NAME=Cloud mocha test/system.test.js --timeout=180000",
     "lint": "eslint '**/*.js'",
