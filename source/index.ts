@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { google } from 'googleapis';
 import { IKill } from './coreTypes';
-import { mapResponseRow } from './killsService';
+import { mapResponseRow, sortKillsByLatest } from './killsService';
 import { errorHandler } from './errors';
 
 const spreadsheetId = '1znN2FhbO2gA1uVDk8i6wbsXSzoem7s-4IMbb8P_RiVI';
@@ -27,7 +27,7 @@ app.get('/kills', async (req, res, next) => {
       throw new Error('There was a problem getting the kills');
     }
 
-    res.send(kills);
+    res.send(sortKillsByLatest(kills));
   } catch (err) {
     errorHandler(err, req, res, next);
   }
